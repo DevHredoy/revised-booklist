@@ -1,10 +1,16 @@
 import './App.css'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { LandingPage } from './pages/LandingPage'
+import { Login } from './pages/Login'
 
 function App() {
   return (
-    <div className="bg-green-500 text-white p-4 rounded-xl text-2xl">
-      Tailwind is working 🎉
-    </div>
+   <BrowserRouter>
+   <Routes>
+    <Route path="/login" element={<Login/>}/>
+    <Route path="/hp" element={<LandingPage/>}/>
+   </Routes>
+   </BrowserRouter>
   )
 }
 

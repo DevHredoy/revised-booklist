@@ -2,7 +2,7 @@
 
 // Landing page component
 
-import { Form } from "antd"
+import { Form, Input } from "antd"
 import "../App.css"
 
 const onFinish = (values: any) => {
@@ -15,13 +15,13 @@ const onFinishFailed = (errorInfo: any) => {
 export const Login=()=>{
 
 return(
-<div>
-    <div className="m-6">
-        <Form
+
+    <div className="m-6 flex justify-center items-center min-h-screen">
+      <div className="bg-slate-700 p-8 rounded-lg shadow-md w-full max-w-md">
+    <Form   
         name="basic"
-    labelCol={{ span: 8 }}
-    wrapperCol={{ span: 16 }}
-    style={{ maxWidth: 600 }}
+    labelCol={{ span: 8 }}  // Label takes 8/24 columns
+          wrapperCol={{ span: 16 }} // Input takes 16/24 columns
     initialValues={{ remember: true }}
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
@@ -29,12 +29,11 @@ return(
         <Form.Item
         label="User Name"
         name="userName">
-            <input/>
+            <Input/>
         </Form.Item>
-        <Form.Item label="Password" name="loginpass"><input></input></Form.Item>
+        <Form.Item label="Password" name="loginpass"><Input/></Form.Item>
         
-    </Form>
-    </div>
+    </Form>    </div>
    
 </div>
 

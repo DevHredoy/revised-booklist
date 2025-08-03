@@ -1,3 +1,11 @@
-1. landing page. without library
-2. folder structure: pages,resources,components,
-3.login using local storage.logger will see the landing page
+branch2:
+
+features in details:
+a.we intend to show books in our list like the below:
+b. if no book in the list it will show a quote with good design
+c. there  will be a prominent add button in top left(having a professional look). 
+d.clicking upon that button there will be a new page(in other branches there will be different form style)
+e.if books available book will be shown using a card design
+      in list.     
+
+      tech stack just like previous.

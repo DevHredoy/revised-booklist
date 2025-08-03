@@ -19,9 +19,15 @@ export const AddBook = () => {
       <div className="bg-white/90 p-10 rounded-xl shadow-2xl w-full max-w-md border border-blue-400">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-800">Add a New Book</h2>
         <Form name="addBookForm" layout="vertical" onFinish={onFinish}>
-          <Form.Item label="Title" name="title" rules={[{ required: true, message: 'Please enter the book title!' }]}> <Input /> </Form.Item>
-          <Form.Item label="Author" name="author" rules={[{ required: true, message: 'Please enter the author!' }]}> <Input /> </Form.Item>
-          <Form.Item label="Description" name="description"> <Input.TextArea rows={3} /> </Form.Item>
+          <Form.Item label="Title" name="title" rules={[{ required: true, message: 'Please enter the book title!' }]}> 
+            <Input /> 
+            </Form.Item>
+          <Form.Item label="Author" name="author" rules={[{ required: true, message: 'Please enter the author!' }]}> 
+            <Input /> 
+            </Form.Item>
+          <Form.Item label="Description" name="description"> 
+            <Input.TextArea rows={3} /> 
+            </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">Add Book</Button>
           </Form.Item>

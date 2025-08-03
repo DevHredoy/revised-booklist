@@ -2,18 +2,19 @@ import { Form, Input, Button, message } from "antd"
 import { useNavigate } from "react-router-dom"
 import "../App.css"
 import { useEffect } from "react"
+import { USERS } from "../users"
 
-// Demo credentials (never do this in production)
-const DEMO_USER = {
-  userName: "demo",
-  loginpass: "password123"
+
+interface LoginFormValues {
+  userName: string;
+  loginpass: string;
 }
 
-const onFinish = (values: any, navigate: any) => {
-  if (
-    values.userName === DEMO_USER.userName &&
-    values.loginpass === DEMO_USER.loginpass
-  ) {
+const onFinish = (values: LoginFormValues, navigate: ReturnType<typeof useNavigate>) => {
+  const found = USERS.find(
+    user => user.userName === values.userName && user.loginpass === values.loginpass
+  )
+  if (found) {
     localStorage.setItem("isLoggedIn", "true")
     message.success("Login successful!")
     navigate("/hp")
@@ -35,8 +36,10 @@ export const Login = () => {
     }
   }, [navigate])
 
+ 
+
   return (
-    <div id="layer3" className="flex justify-center items-center min-h-screen bg-gradient-to-br from-slate-800 to-blue-900">
+    <div id="layer3" className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-slate-800 to-blue-900">
       <div id="layer2" className="bg-white/90 p-10 rounded-xl shadow-2xl w-full max-w-md border border-blue-400">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-800">Login to Booklist</h2>
         <Form
@@ -45,7 +48,7 @@ export const Login = () => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
-          onFinish={(values) => onFinish(values, navigate)}
+          onFinish={(values: LoginFormValues) => onFinish(values, navigate)}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
@@ -69,6 +72,7 @@ export const Login = () => {
             </Button>
           </Form.Item>
         </Form>
+       
       </div>
     </div>
   )

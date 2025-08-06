@@ -19,6 +19,12 @@ export const BookList = () => {
     setBooks(stored ? JSON.parse(stored) : [])
   }, [])
 
+  const removeBook = (indexToRemove: number) => {
+    const updatedBooks = books.filter((_, index) => index !== indexToRemove)
+    setBooks(updatedBooks)
+    localStorage.setItem("books", JSON.stringify(updatedBooks))
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-blue-900 p-8">
       <div className="flex justify-start mb-8">
@@ -31,7 +37,22 @@ export const BookList = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {books.map((book, idx) => (
-            <Card key={idx} title={book.title} className="shadow-lg border-blue-400">
+            <Card
+              key={idx}
+              title={book.title}
+              className="shadow-lg border-blue-400"
+              extra={
+                <Button
+                  type="text"
+                  danger
+                  size="small"
+                  onClick={() => removeBook(idx)}
+                  className="hover:bg-red-100"
+                >
+                  ✕
+                </Button>
+              }
+            >
               <p className="font-semibold text-blue-900">Author: {book.author}</p>
               {book.description && <p className="mt-2 text-slate-700">{book.description}</p>}
             </Card>

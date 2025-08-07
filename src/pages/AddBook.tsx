@@ -1,9 +1,14 @@
 import { Form, Input, Button, message } from "antd"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 import type { Book } from "./BookList"
 
 export const AddBook = () => {
   const navigate = useNavigate()
+
+  // Protect the page - redirect to login if not authenticated
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    return <Navigate to="/login" replace />
+  }
 
   const onFinish = (values: Book) => {
     const stored = localStorage.getItem("books")

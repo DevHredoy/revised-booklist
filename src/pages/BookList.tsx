@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Button, Card } from "antd"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 const QUOTE = "A room without books is like a body without a soul."
 
@@ -13,6 +13,11 @@ export interface Book {
 export const BookList = () => {
   const [books, setBooks] = useState<Book[]>([])
   const navigate = useNavigate()
+
+  // Protect the page - redirect to login if not authenticated
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    return <Navigate to="/login" replace />
+  }
 
   useEffect(() => {
     const stored = localStorage.getItem("books")

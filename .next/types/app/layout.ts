@@ -1,4 +1,4 @@
-// File: /home/rafiul-islam/Software Projects/Practice/booklist-web/revised-booklist/app/layout.tsx
+// File: /home/rafiul-islam-hredoy/practice projects/blist/booklist-web/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -16,10 +16,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/login/page.js"
     ],
-    "/api/auth/me/route": [
+    "/api/auth/login/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/api/auth/me/route.js"
+      "static/chunks/app/api/auth/login/route.js"
+    ],
+    "/hp/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hp/page.js"
+    ],
+    "/books/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/books/page.js"
+    ],
+    "/api/books/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/books/route.js"
     ]
   }
 }
